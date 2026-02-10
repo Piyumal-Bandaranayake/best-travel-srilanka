@@ -2,20 +2,27 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Home, MapPin, Briefcase, Info, Image as ImageIcon, ChevronRight, Waves, Sparkles } from 'lucide-react';
+import { Menu, X, Home, MapPin, Briefcase, Info, Image as ImageIcon, ChevronRight, Waves, Sparkles, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            setScrolled(window.scrollY > 50);
         };
+        handleScroll(); // Initial check
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const handleWhatsAppBook = () => {
+        const phoneNumber = "+94700000000";
+        const message = "Hi! I'm interested in booking a tour with Best Travel Sri Lanka.";
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    };
 
     const navItems = [
         { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
@@ -27,16 +34,22 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-5 font-outfit ${
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 font-outfit ${
                 scrolled 
-                ? 'bg-white/30 backdrop-blur-xl border-b border-white/20 shadow-xl py-4' 
-                : 'bg-transparent'
+                ? 'bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-lg py-3' 
+                : 'bg-transparent py-6'
             }`}
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center group">
-                   
+                    <div className="relative h-12 w-auto flex items-center bg-white rounded-xl p-1 shadow-sm px-3">
+                        <img 
+                            src="/best%20travel.svg" 
+                            alt="Best Travel Sri Lanka" 
+                            className="h-8 w-auto object-contain"
+                        />
+                    </div>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -45,18 +58,21 @@ const Navbar = () => {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className={`group relative text-sm font-bold transition-all duration-500 flex items-center space-x-1 ${
-                                scrolled ? 'text-gray-700' : 'text-white'
+                            className={`group relative text-sm font-bold transition-all duration-300 flex items-center space-x-1 ${
+                                scrolled ? 'text-gray-900' : 'text-white'
                             }`}
-                            style={{ textShadow: scrolled ? 'none' : '0 1px 4px rgba(0,0,0,0.4)' }}
                         >
                             <span>{item.name}</span>
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-green transition-all duration-300 group-hover:w-full shadow-sm" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full" />
                         </Link>
                     ))}
                     
-                    <button className="px-6 py-3 bg-linear-to-r from-primary-green to-primary-blue text-white rounded-full font-bold text-sm shadow-xl hover:shadow-primary-green/20 hover:scale-105 transition-all duration-300">
-                        Explore Now
+                    <button 
+                        onClick={handleWhatsAppBook}
+                        className="px-6 py-3 bg-primary-green text-white rounded-full font-bold text-sm shadow-xl shadow-primary-green/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                    >
+                        <MessageCircle className="w-4 h-4" />
+                        Book Now
                     </button>
                 </div>
 
