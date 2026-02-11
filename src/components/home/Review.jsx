@@ -1,33 +1,55 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
+import Link from 'next/link';
 
 const Review = () => {
-    const reviews = [
+    const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            try {
+                const response = await fetch('/api/reviews', { cache: 'no-store' });
+                const data = await response.json();
+                if (data.success) {
+                    setReviews(data.data.slice(0, 3)); // Show top 3 recent reviews
+                }
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchReviews();
+    }, []);
+
+    // Static fallback reviews if no data or error
+    const staticReviews = [
         {
             name: 'Sarah Johnson',
-            location: 'United Kingdom',
+            country: 'United Kingdom',
             rating: 5,
-            text: "The most incredible experience of my life! The team took care of every detail, from the airport pickup to the amazing hotels. Sri Lanka is truly a paradise.",
-            image: '/avatars/sarah.jpg' // Placeholder, will rely on initials if not found or handled essentially
+            feedback: "The most incredible experience of my life! The team took care of every detail, from the airport pickup to the amazing hotels. Sri Lanka is truly a paradise."
         },
         {
             name: 'Michael Chen',
-            location: 'Singapore',
+            country: 'Singapore',
             rating: 5,
-            text: "Professional, friendly, and knowledgeable guides. We saw elephants in the wild, hiked Sigiriya, and relaxed on pristine beaches. Highly recommended!",
-            image: '/avatars/michael.jpg'
+            feedback: "Professional, friendly, and knowledgeable guides. We saw elephants in the wild, hiked Sigiriya, and relaxed on pristine beaches. Highly recommended!"
         },
         {
             name: 'Emma & Tom',
-            location: 'Australia',
+            country: 'Australia',
             rating: 5,
-            text: "We booked a 10-day honeymoon tour and it was perfect. The itinerary was well-paced and the personalized touches made it so special. Thank you!",
-            image: '/avatars/emma.jpg'
+            feedback: "We booked a 10-day honeymoon tour and it was perfect. The itinerary was well-paced and the personalized touches made it so special. Thank you!"
         }
     ];
+
+    const displayReviews = reviews.length > 0 ? reviews : staticReviews;
 
     return (
         <section className="bg-gray-50 py-24 border-t border-gray-100">
@@ -47,7 +69,7 @@ const Review = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    {reviews.map((review, index) => (
+                    {displayReviews.map((review, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
@@ -67,17 +89,17 @@ const Review = () => {
                                 ))}
                             </div>
 
-                            <p className="text-gray-600 font-medium leading-relaxed mb-8 relative z-10">
-                                "{review.text}"
+                            <p className="text-gray-600 font-medium leading-relaxed mb-8 relative z-10 line-clamp-4">
+                                "{review.feedback}"
                             </p>
 
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-linear-to-br from-primary-green to-primary-blue flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div className="w-12 h-12 rounded-full bg-linear-to-br from-primary-green to-primary-blue flex items-center justify-center text-white font-bold text-lg shadow-lg uppercase">
                                     {review.name.charAt(0)}
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900">{review.name}</h4>
-                                    <p className="text-sm text-gray-400 font-medium">{review.location}</p>
+                                    <p className="text-sm text-gray-400 font-medium">{review.country}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -85,15 +107,17 @@ const Review = () => {
                 </div>
 
                 <div className="text-center">
-                    <motion.button
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="px-8 py-4 bg-white text-primary-green border-2 border-primary-green/20 rounded-full font-bold text-sm hover:bg-primary-green hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary-green/25 active:scale-95"
-                    >
-                        Read More Reviews
-                    </motion.button>
+                    <Link href="/reviews">
+                        <motion.button
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="px-8 py-4 bg-white text-primary-green border-2 border-primary-green/20 rounded-full font-bold text-sm hover:bg-primary-green hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary-green/25 active:scale-95"
+                        >
+                            Read More Reviews
+                        </motion.button>
+                    </Link>
                 </div>
             </div>
         </section>
