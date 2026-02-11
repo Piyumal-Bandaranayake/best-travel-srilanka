@@ -45,8 +45,11 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo Section */}
-                <Link href="/" className="flex items-center group">
+                <Link href="/" className="flex items-center gap-3 group">
                     
+                    <div className="flex flex-col leading-tight">
+                      
+                    </div>
                 </Link>
 
                 {/* Desktop Navigation */}

@@ -5,27 +5,12 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, MapPin, MessageCircle } from 'lucide-react';
 
+import Link from 'next/link';
+import { destinations } from '@/data/destinations';
+
 const DestinationCards = () => {
-    const destinations = [
-        {
-            title: 'Sigiriya Rock',
-            location: 'Matale District',
-            image: '/sigirya.jpg',
-            tag: 'Historical'
-        },
-        {
-            title: 'Nine Arch Bridge',
-            location: 'Ella, Highlands',
-            image: '/9arch.jpg',
-            tag: 'Scenic'
-        },
-        {
-            title: 'Mirissa Beach',
-            location: 'Southern Province',
-            image: '/mirissa%20beach.jpg',
-            tag: 'Coastal'
-        }
-    ];
+    // Show only the first 3 destinations on the home page
+    const displayedDestinations = destinations.slice(0, 3);
 
     const handleWhatsAppBook = (title) => {
         const phoneNumber = "+94700000000"; // Placeholder number
@@ -34,7 +19,6 @@ const DestinationCards = () => {
     };
 
     return (
-
         <section className="bg-white py-24">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex items-center justify-between mb-16">
@@ -50,9 +34,9 @@ const DestinationCards = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    {destinations.map((dest, index) => (
+                    {displayedDestinations.map((dest, index) => (
                         <motion.div
-                            key={dest.title}
+                            key={dest.id || index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -103,15 +87,17 @@ const DestinationCards = () => {
                 </div>
 
                 <div className="text-center mt-16">
-                    <motion.button
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="px-8 py-4 bg-white text-primary-green border-2 border-primary-green/20 rounded-full font-bold text-sm hover:bg-primary-green hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary-green/25 active:scale-95"
-                    >
-                        Explore More Destinations
-                    </motion.button>
+                    <Link href="/destinations">
+                        <motion.button
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="px-8 py-4 bg-white text-primary-green border-2 border-primary-green/20 rounded-full font-bold text-sm hover:bg-primary-green hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary-green/25 active:scale-95 inline-block"
+                        >
+                            Explore More Destinations
+                        </motion.button>
+                    </Link>
                 </div>
             </div>
         </section>
