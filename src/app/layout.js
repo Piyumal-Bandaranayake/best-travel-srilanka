@@ -23,6 +23,7 @@ export const metadata = {
 
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import ReviewButton from "@/components/layout/ReviewButton";
 
 export default function RootLayout({ children }) {
   return (
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {children}
+        <ReviewButton />
         <Footer />
       </body>
     </html>
