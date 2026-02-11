@@ -2,12 +2,16 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Home, MapPin, Briefcase, Info, Image as ImageIcon, ChevronRight, Waves, Sparkles, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,6 +24,10 @@ const Navbar = () => {
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [scrolled]);
+
+    if (pathname && pathname.startsWith('/admin')) {
+        return null;
+    }
 
     const handleWhatsAppBook = () => {
         const phoneNumber = "+94700000000";

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { 
     Facebook, 
@@ -17,7 +18,12 @@ import {
 import AdminLogin from '../auth/AdminLogin';
 
 const Footer = () => {
+    const pathname = usePathname();
     const currentYear = new Date().getFullYear();
+
+    if (pathname && pathname.startsWith('/admin')) {
+        return null;
+    }
 
     const quickLinks = [
         { name: 'Home', href: '/' },
