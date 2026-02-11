@@ -44,11 +44,12 @@ const DestinationCards = () => {
                             whileHover={{ y: -12 }}
                             className="group flex flex-col"
                         >
-                            <div className="relative h-[450px] rounded-[40px] overflow-hidden shadow-2xl mb-6">
+                            <div className="relative h-[450px] rounded-[40px] overflow-hidden shadow-2xl mb-6 transform-gpu">
                                 <Image 
                                     src={dest.image} 
                                     alt={dest.title}
                                     fill
+                                    quality={90}
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                 />
@@ -61,7 +62,7 @@ const DestinationCards = () => {
                                 </div>
 
                                 <div className="absolute bottom-10 left-10 text-white">
-                                    <span className="inline-block px-4 py-1.5 bg-accent-green/20 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-accent-green mb-4">
+                                    <span className="inline-block px-4 py-1.5 bg-accent-green/90 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-4">
                                         {dest.tag}
                                     </span>
                                     <h3 className="text-3xl font-black mb-2 tracking-tight">{dest.title}</h3>
