@@ -11,12 +11,15 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const isScrolled = window.scrollY > 50;
+            if (isScrolled !== scrolled) {
+                setScrolled(isScrolled);
+            }
         };
         handleScroll(); // Initial check
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [scrolled]);
 
     const handleWhatsAppBook = () => {
         const phoneNumber = "+94700000000";
@@ -43,13 +46,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center group">
-                    <div className="relative h-12 w-auto flex items-center bg-white rounded-xl p-1 shadow-sm px-3">
-                        <img 
-                            src="/best%20travel.svg" 
-                            alt="Best Travel Sri Lanka" 
-                            className="h-8 w-auto object-contain"
-                        />
-                    </div>
+                    
                 </Link>
 
                 {/* Desktop Navigation */}
