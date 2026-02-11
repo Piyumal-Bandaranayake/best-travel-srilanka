@@ -77,7 +77,7 @@ const DestinationCards = () => {
                             <div className="flex flex-col gap-3 px-2">
                                 <button 
                                     onClick={() => handleWhatsAppBook(dest.title)}
-                                    className="w-full py-4 bg-primary-green text-white rounded-2xl font-bold text-sm shadow-xl shadow-primary-green/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                                    className="w-full py-4 bg-[#25D366] text-white rounded-2xl font-bold text-sm shadow-xl shadow-green-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 hover:bg-[#128C7E]"
                                 >
                                     <MessageCircle className="w-5 h-5" />
                                     Book Now
@@ -94,7 +94,7 @@ const DestinationCards = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="px-8 py-4 bg-white text-primary-green border-2 border-primary-green/20 rounded-full font-bold text-sm hover:bg-primary-green hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary-green/25 active:scale-95 inline-block"
+                            className="px-8 py-4 bg-white text-[#25D366] border-2 border-[#25D366]/20 rounded-full font-bold text-sm hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-lg hover:shadow-green-600/25 active:scale-95 inline-block"
                         >
                             Explore More Destinations
                         </motion.button>

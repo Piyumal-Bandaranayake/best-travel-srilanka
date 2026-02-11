@@ -30,7 +30,7 @@ const Navbar = () => {
     const navItems = [
         { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
         { name: 'Destinations', href: '/destinations', icon: <MapPin className="w-4 h-4" /> },
-        { name: 'Activities', href: '/activities', icon: <Sparkles className="w-4 h-4" /> },
+        { name: 'Packages', href: '/packages', icon: <Sparkles className="w-4 h-4" /> },
         { name: 'About', href: '/about', icon: <Info className="w-4 h-4" /> },
         { name: 'Gallery', href: '/gallery', icon: <ImageIcon className="w-4 h-4" /> },
     ];
