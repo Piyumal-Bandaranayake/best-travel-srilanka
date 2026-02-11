@@ -30,7 +30,7 @@ const Navbar = () => {
     const navItems = [
         { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
         { name: 'Destinations', href: '/destinations', icon: <MapPin className="w-4 h-4" /> },
-        { name: 'Service', href: '/services', icon: <Briefcase className="w-4 h-4" /> },
+        { name: 'Activities', href: '/activities', icon: <Sparkles className="w-4 h-4" /> },
         { name: 'About', href: '/about', icon: <Info className="w-4 h-4" /> },
         { name: 'Gallery', href: '/gallery', icon: <ImageIcon className="w-4 h-4" /> },
     ];
@@ -46,10 +46,8 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center gap-3 group">
-                    
-                    <div className="flex flex-col leading-tight">
-                      
-                    </div>
+                  
+                 
                 </Link>
 
                 {/* Desktop Navigation */}
