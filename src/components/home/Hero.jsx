@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MessageCircle, MapPin } from 'lucide-react';
 
@@ -33,15 +34,22 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: index === currentSlide ? 1 : 0 }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url("${slide}")` }}
+                    className="absolute inset-0"
                 >
+                    <Image
+                        src={slide}
+                        alt="Hero Background"
+                        fill
+                        priority={index === 0}
+                        className="object-cover object-center"
+                        sizes="100vw"
+                    />
                     <div className="absolute inset-0 bg-black/40" />
                 </motion.div>
             ))}
 
             {/* Hero Content */}
-            <div className="relative h-full flex flex-col justify-center items-center text-center px-6 text-white max-w-5xl mx-auto z-10 pt-20">
+            <div className="relative h-full flex flex-col justify-center items-center text-center px-6 text-white max-w-5xl mx-auto z-20 pt-20">
                 <motion.span
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -78,7 +86,7 @@ const Hero = () => {
                 >
                     <button 
                         onClick={handleWhatsAppBook}
-                        className="px-12 py-5 bg-white text-primary-green rounded-full font-black text-lg shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+                        className="px-12 py-5 bg-white text-primary-green rounded-full font-black text-lg shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 relative z-30 pointer-events-auto"
                     >
                         <MessageCircle className="w-6 h-6 fill-primary-green/10" />
                         Book Now
@@ -87,7 +95,7 @@ const Hero = () => {
             </div>
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/50 to-transparent z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-white via-white/50 to-transparent z-10" />
         </section>
     );
 };
