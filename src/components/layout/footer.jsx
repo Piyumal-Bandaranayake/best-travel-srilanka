@@ -14,6 +14,7 @@ import {
     Waves,
     Send
 } from 'lucide-react';
+import AdminLogin from '../auth/AdminLogin';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -114,6 +115,9 @@ const Footer = () => {
                                     {social.icon}
                                 </motion.a>
                             ))}
+
+                            <div className="w-px h-4 bg-white/10 mx-1"></div>
+                            <AdminLogin />
                         </div>
                     </div>
                 </div>

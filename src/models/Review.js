@@ -26,6 +26,15 @@ const ReviewSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  isApproved: {
+    type: Boolean,
+    default: false,
+  },
 });
+
+// Force update schema if model already exists without the new field
+if (mongoose.models.Review && !mongoose.models.Review.schema.paths.isApproved) {
+  delete mongoose.models.Review;
+}
 
 export default mongoose.models.Review || mongoose.model('Review', ReviewSchema);
