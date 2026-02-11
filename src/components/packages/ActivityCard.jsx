@@ -1,19 +1,20 @@
 'use client';
+import Link from 'next/link';
 
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, MapPin, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, MapPin, MessageCircle, Eye } from 'lucide-react';
 
-const ActivityCard = ({ activity, onClick, onBook }) => {
-    return (
+const ActivityCard = ({ activity, onClick, onBook, buttonText = "View Details", noLink = false, subtitle, hideDescription = false }) => {
+    const CardContent = (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -12 }}
-            className="group flex flex-col cursor-pointer"
-            onClick={() => onClick(activity)}
+            className="group flex flex-col cursor-pointer h-full"
+            onClick={onClick}
         >
             <div className="relative h-[450px] rounded-[40px] overflow-hidden shadow-2xl mb-6 bg-gray-100">
                 <Image 
@@ -32,34 +33,45 @@ const ActivityCard = ({ activity, onClick, onBook }) => {
                 </div>
 
                 <div className="absolute bottom-10 left-10 text-white right-10">
-                    <span className="inline-block px-4 py-1.5 bg-accent-green/20 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-accent-green mb-4">
-                        {activity.tag}
-                    </span>
+                
                     <h3 className="text-3xl font-black mb-2 tracking-tight leading-none">{activity.title}</h3>
-                    <div className="flex items-center gap-2 text-white/70 font-medium mb-4">
-                        <MapPin className="w-4 h-4 text-accent-green" />
-                        <span>{activity.location}</span>
-                    </div>
-                    <p className="text-xs text-white/80 line-clamp-2 md:line-clamp-3 font-medium leading-relaxed">
-                        {activity.description}
-                    </p>
+                    {subtitle && (
+                        <div className="flex items-center gap-2 text-white/70 font-medium mb-4">
+                            <MapPin className="w-4 h-4" />
+                            {subtitle}
+                        </div>
+                    )}
+                    
                 </div>
             </div>
             
             {/* Buttons Footer */}
-            <div className="flex flex-col gap-3 px-2">
+            <div className="flex flex-col gap-3 px-2 mt-auto">
                 <button 
                     onClick={(e) => {
-                        e.stopPropagation();
-                        onBook(activity.title);
+                        if (onBook) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            onBook(activity);
+                        }
                     }}
-                    className="w-full py-4 bg-primary-green text-white rounded-2xl font-bold text-sm shadow-xl shadow-primary-green/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-[#25D366] text-white rounded-2xl font-bold text-sm shadow-xl shadow-green-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 hover:bg-[#128C7E]"
                 >
-                    <MessageCircle className="w-5 h-5" />
-                    Book Now
+                    {buttonText === "Book Safari" ? <MessageCircle className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {buttonText}
                 </button>
             </div>
         </motion.div>
+    );
+
+    if (noLink) {
+        return <div className="h-full">{CardContent}</div>;
+    }
+
+    return (
+        <Link href={`/packages/${activity.id}`}>
+            {CardContent}
+        </Link>
     );
 };
 

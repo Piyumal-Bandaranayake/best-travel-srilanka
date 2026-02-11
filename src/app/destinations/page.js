@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, MapPin, MessageCircle, Search } from 'lucide-react';
@@ -9,16 +10,6 @@ import { destinations } from '@/data/destinations';
 export default function DestinationsPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedDest, setSelectedDest] = useState(null);
-    const [activeFilter, setActiveFilter] = useState('All');
-
-    const filters = [
-        { name: 'All', label: 'All Locations' },
-        { name: 'Beach Side', label: 'Beach Side' },
-        { name: 'Up Country', label: 'Up Country' },
-        { name: 'Down South', label: 'Down South' },
-        { name: 'Wild Parks', label: 'Wild Parks' },
-        { name: 'Heritage', label: 'Ancient Heritage' }
-    ];
 
     const handleWhatsAppBook = (title) => {
         const phoneNumber = "+94700000000"; // Placeholder number
@@ -27,21 +18,13 @@ export default function DestinationsPage() {
     };
 
     const filteredDestinations = destinations.filter(dest => {
-        const matchesSearch = 
-            dest.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            dest.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            dest.tag.toLowerCase().includes(searchTerm.toLowerCase());
-
-        if (!matchesSearch) return false;
-
-        if (activeFilter === 'All') return true;
-        if (activeFilter === 'Beach Side') return dest.tag === 'Coastal';
-        if (activeFilter === 'Up Country') return dest.location.includes('Kandy') || dest.location.includes('Ella') || dest.location.includes('Highlands');
-        if (activeFilter === 'Down South') return dest.location.includes('Galle') || dest.location.includes('Mirissa') || dest.location.includes('Southern');
-        if (activeFilter === 'Wild Parks') return dest.tag === 'Wildlife';
-        if (activeFilter === 'Heritage') return dest.tag === 'Historical' || dest.tag === 'Heritage' || dest.tag === 'Cultural';
-        
-        return true;
+        if (!searchTerm) return true;
+        const lowerTerm = searchTerm.toLowerCase();
+        return (
+            dest.title.toLowerCase().includes(lowerTerm) ||
+            dest.location.toLowerCase().includes(lowerTerm) ||
+            dest.tag.toLowerCase().includes(lowerTerm)
+        );
     });
 
     return (
@@ -74,40 +57,25 @@ export default function DestinationsPage() {
                         <p className="text-white/90 font-medium max-w-2xl mx-auto text-lg md:text-xl leading-relaxed drop-shadow-md mb-10">
                             From ancient ruins to golden beaches, discover the diverse landscapes and hidden gems that make Sri Lanka truly unique.
                         </p>
-
-                        {/* Search Bar */}
-                        <div className="max-w-md mx-auto relative group mb-8">
-                            <input 
-                                type="text" 
-                                placeholder="Search destinations, locations..." 
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full py-4 pl-12 pr-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 focus:outline-none focus:bg-white/20 focus:border-white/40 transition-all font-medium"
-                            />
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
-                        </div>
-
-                        {/* Filter Buttons */}
-                        <div className="flex flex-wrap justify-center gap-3">
-                            {filters.map((filter) => (
-                                <button
-                                    key={filter.name}
-                                    onClick={() => setActiveFilter(filter.name)}
-                                    className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 backdrop-blur-md border ${
-                                        activeFilter === filter.name 
-                                        ? 'bg-primary-green text-white border-primary-green shadow-lg shadow-primary-green/25 scale-105' 
-                                        : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-                                    }`}
-                                >
-                                    {filter.label}
-                                </button>
-                            ))}
-                        </div>
                     </motion.div>
                 </div>
             </section>
 
             <div className="max-w-7xl mx-auto px-6 py-24">
+                {/* Search Bar - Clean Layout */}
+                <div className="max-w-2xl mx-auto mb-16 relative">
+                    <div className="relative group">
+                        <input 
+                            type="text" 
+                            placeholder="Search destinations, locations..." 
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="w-full py-5 pl-14 pr-6 rounded-2xl bg-gray-50 border-2 border-gray-100 text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-primary-green/30 focus:shadow-xl focus:shadow-primary-green/5 transition-all duration-300 font-medium text-lg"
+                        />
+                        <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-primary-green transition-colors" />
+                    </div>
+                </div>
+
                 {/* Destinations Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {filteredDestinations.length > 0 ? (
@@ -159,7 +127,7 @@ export default function DestinationsPage() {
                                         e.stopPropagation();
                                         handleWhatsAppBook(dest.title);
                                     }}
-                                    className="w-full py-4 bg-primary-green text-white rounded-2xl font-bold text-sm shadow-xl shadow-primary-green/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                                    className="w-full py-4 bg-[#25D366] text-white rounded-2xl font-bold text-sm shadow-xl shadow-green-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 hover:bg-[#128C7E]"
                                 >
                                     <MessageCircle className="w-5 h-5" />
                                     Book Now
@@ -169,7 +137,7 @@ export default function DestinationsPage() {
                         ))
                     ) : (
                         <div className="col-span-full text-center py-20 text-gray-500">
-                            <p className="text-xl font-medium">No destinations found matching your search.</p>
+                            <p className="text-xl font-medium">No destinations found matching "{searchTerm}".</p>
                         </div>
                     )}
                 </div>
@@ -228,13 +196,14 @@ export default function DestinationsPage() {
                                     We handle all the logistics so you can focus on creating memories.
                                 </p>
 
-                                <button 
-                                    onClick={() => handleWhatsAppBook(selectedDest.title)}
-                                    className="w-full py-4 bg-primary-green text-white rounded-xl font-bold text-lg shadow-xl shadow-primary-green/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
-                                >
-                                    <MessageCircle className="w-5 h-5" />
-                                    Book Your Tour Now
-                                </button>
+                                <Link href="/packages" className="w-full">
+                                    <button 
+                                        className="w-full py-4 bg-[#25D366] text-white rounded-xl font-bold text-lg shadow-xl shadow-green-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 hover:bg-[#128C7E]"
+                                    >
+                                        <ArrowUpRight className="w-5 h-5" />
+                                        Pick Your Package
+                                    </button>
+                                </Link>
                             </div>
                         </motion.div>
                     </motion.div>
