@@ -37,8 +37,9 @@ const CompanyStory = () => {
             >
                 <div className="space-y-8">
                     <motion.div variants={itemVariants}>
-                        <h2 className="text-primary-green font-bold text-lg mb-2">OUR STORY</h2>
-                        <h3 className="text-4xl font-bold text-gray-900 mb-6">Experience the Real Sri Lanka with Us</h3>
+
+                        <h1 className="text-primary-green font-bold text-xl mb-2">OUR STORY</h1>
+                        <h3 className="text-4xl font-bold text-gray-900 mb-8">Experience the Real Sri Lanka with Us</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
                             Best Travel Sri Lanka was born from a passion for sharing the island's unique beauty with the world. 
                             We define ourselves not just as a travel agency, but as your local companion, dedicated to showing you 
@@ -49,11 +50,11 @@ const CompanyStory = () => {
 
                     <motion.div variants={itemVariants} className="grid grid-cols-2 gap-6">
                         <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                            <span className="text-4xl font-bold text-primary-green block mb-2">10+</span>
+                            <span className="text-4xl font-bold text-primary-green block mb-2">5+</span>
                             <span className="text-gray-600 font-medium">Years of Experience</span>
                         </div>
                         <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                            <span className="text-4xl font-bold text-primary-blue block mb-2">5k+</span>
+                            <span className="text-4xl font-bold text-primary-blue block mb-2">1k+</span>
                             <span className="text-gray-600 font-medium">Happy Travelers</span>
                         </div>
                         <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">

@@ -30,14 +30,12 @@ const Footer = () => {
         { name: 'Destinations', href: '/destinations' },
         { name: 'Packages', href: '/packages' },
         { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
+       
     ];
 
     const socialLinks = [
         { icon: <Facebook className="w-4 h-4" />, href: '#' },
         { icon: <Instagram className="w-4 h-4" />, href: '#' },
-        { icon: <Twitter className="w-4 h-4" />, href: '#' },
-        { icon: <Linkedin className="w-4 h-4" />, href: '#' },
     ];
 
     return (
@@ -49,9 +47,7 @@ const Footer = () => {
                     
                     {/* Brand */}
                     <div className="flex items-center space-x-3 group">
-                        <div className="w-10 h-10 bg-primary-green rounded-xl flex items-center justify-center shadow-lg shadow-primary-green/20">
-                            <Waves className="text-white w-5 h-5" />
-                        </div>
+                       
                         <div className="flex flex-col leading-tight">
                             <span className="text-xl font-black tracking-tight text-white">BEST TRAVEL</span>
                             <span className="text-[10px] font-bold tracking-widest uppercase text-accent-green">Sri Lanka</span>
@@ -71,17 +67,7 @@ const Footer = () => {
                         ))}
                     </div>
 
-                    {/* Compact Newsletter */}
-                    <div className="relative w-full max-w-xs group">
-                        <input 
-                            type="email" 
-                            placeholder="Subscribe to newsletter" 
-                            className="w-full bg-white/5 border border-white/10 rounded-full py-2.5 pl-5 pr-12 text-sm focus:outline-none focus:border-primary-green/50 transition-all"
-                        />
-                        <button className="absolute right-1 top-1 bottom-1 aspect-square bg-primary-green text-white rounded-full flex items-center justify-center hover:scale-105 transition-all">
-                            <Send className="w-3 h-3" />
-                        </button>
-                    </div>
+
                 </div>
 
                 {/* Divider */}
@@ -92,13 +78,13 @@ const Footer = () => {
                     
                     {/* Compact Contact Info */}
                     <div className="flex flex-wrap justify-center md:justify-start gap-6 text-xs font-medium text-gray-400">
-                        <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                        <a href="https://wa.me/94701000148" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
                             <Phone className="w-3.5 h-3.5 text-primary-green" />
-                            <span>+94 11 234 5678</span>
-                        </div>
+                            <span>+94 70 100 0148</span>
+                        </a>
                         <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
                             <Mail className="w-3.5 h-3.5 text-primary-green" />
-                            <span>hello@besttravel.lk</span>
+                            <span>contact.btslanka@gmail.com</span>
                         </div>
                         <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
                             <MapPin className="w-3.5 h-3.5 text-primary-green" />

@@ -12,7 +12,7 @@ export default function DestinationsPage() {
     const [selectedDest, setSelectedDest] = useState(null);
 
     const handleWhatsAppBook = (title) => {
-        const phoneNumber = "+94700000000"; // Placeholder number
+        const phoneNumber = "94701000148"; // Booking number
         const message = `Hi! I would like to book a tour for ${title}.`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     };

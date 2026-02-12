@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Star, MapPin, Calendar, Award } from 'lucide-react';
+import { Star, MapPin, Calendar, Award, MessageCircle } from 'lucide-react';
 import { guides } from '@/data/guides';
 
 const Team = () => {
@@ -50,10 +50,7 @@ const Team = () => {
                                 <span className="px-4 py-1.5 bg-primary-green/10 text-primary-green rounded-full text-sm font-bold uppercase tracking-wider">
                                     {guide.role}
                                 </span>
-                                <div className="flex items-center gap-1 bg-yellow-50 px-3 py-1.5 rounded-full border border-yellow-100">
-                                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                    <span className="text-sm font-bold text-gray-700">5.0 Rating</span>
-                                </div>
+                               
                             </div>
 
                             <h4 className="text-4xl font-black text-gray-900 mb-6 leading-tight">
@@ -79,8 +76,8 @@ const Team = () => {
                                         <Calendar className="w-6 h-6 text-accent-green" />
                                     </div>
                                     <div>
-                                        <h5 className="text-lg font-bold text-gray-900">10+ Years Experience</h5>
-                                        <p className="text-gray-500 text-sm">Guiding happy travelers since 2015</p>
+                                        <h5 className="text-lg font-bold text-gray-900">5+ Years Experience</h5>
+                                        <p className="text-gray-500 text-sm">Guiding happy travelers since 2020</p>
                                     </div>
                                 </div>
                             </div>
@@ -94,6 +91,19 @@ const Team = () => {
                                         </span>
                                     ))}
                                 </div>
+                                </div>
+
+
+                            <div className="mt-10">
+                                <a 
+                                    href={`https://wa.me/94701000148?text=Hi! I would like to inquire about a tour with ${guide.name}.`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-xl shadow-lg hover:bg-[#128C7E] hover:shadow-xl transition-all w-full md:w-auto justify-center"
+                                >
+                                    <MessageCircle className="w-5 h-5" />
+                                    Contact on WhatsApp
+                                </a>
                             </div>
                         </div>
                     </div>

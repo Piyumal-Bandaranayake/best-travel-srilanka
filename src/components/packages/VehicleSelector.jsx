@@ -24,7 +24,7 @@ const VehicleSelector = ({ onSelect }) => {
 
     const handleBook = (e, vehicle) => {
         e.stopPropagation();
-        const phoneNumber = "+94700000000"; // Replace with actual business number
+        const phoneNumber = "94701000148"; // Replace with actual business number
         const message = `Hi! I am interested in booking the ${vehicle.model} (${vehicle.type}). Please provide more details.`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     };

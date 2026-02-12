@@ -11,7 +11,7 @@ const BeachActivityCard = () => {
     const [selectedActivity, setSelectedActivity] = useState(null);
 
     const handleBook = (activity) => {
-        const phoneNumber = "+94700000000";
+        const phoneNumber = "94701000148";
         const message = `Hi! I am interested in booking the Beach Activity: ${activity.title} (${activity.location}).`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     };

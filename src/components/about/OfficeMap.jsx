@@ -32,9 +32,14 @@ const OfficeMap = () => {
                                 <div>
                                     <h4 className="font-bold text-gray-900 mb-1">Address</h4>
                                     <p className="text-gray-600">
-                                        123 Galle Road,<br />
-                                        Colombo 03,<br />
+                                        Godagama,<br />
+                                        Homagama ,<br />
+                                        Colombo ,<br />
                                         Sri Lanka
+                                        <br />
+                                        10200
+
+
                                     </p>
                                 </div>
                             </div>
@@ -45,8 +50,7 @@ const OfficeMap = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900 mb-1">Phone</h4>
-                                    <p className="text-gray-600">+94 11 234 5678</p>
-                                    <p className="text-gray-600">+94 77 123 4567</p>
+                                    <p className="text-gray-600">+94 70 100 0148</p>
                                 </div>
                             </div>
 
@@ -56,11 +60,13 @@ const OfficeMap = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900 mb-1">Email</h4>
-                                    <p className="text-gray-600">hello@besttravelsrilanka.com</p>
-                                    <p className="text-gray-600">support@besttravelsrilanka.com</p>
+                                    <a href="mailto:contact.btslanka@gmail.com" className="text-gray-600 hover:text-primary-blue hover:underline transition-colors">
+                                        contact.btslanka@gmail.com
+                                    </a>
+
                                 </div>
-                            </div>
-                            
+                             </div>
+
                             <div className="flex items-start gap-4">
                                 <div className="bg-orange-100 p-3 rounded-full shrink-0">
                                     <Clock className="w-6 h-6 text-orange-500" />
@@ -82,7 +88,7 @@ const OfficeMap = () => {
                         className="md:col-span-2 h-[500px] rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-white p-2"
                     >
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63371.80392131665!2d79.82118600742881!3d6.921373369401764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1707654321098!5m2!1sen!2sus" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15843.49652570077!2d80.0166296!3d6.8814529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae252243d650123%3A0xe51952e1f463378b!2sGodagama%2C%20Homagama!5e0!3m2!1sen!2slk!4v1707654321098!5m2!1sen!2slk" 
                             width="100%" 
                             height="100%" 
                             style={{ border: 0, borderRadius: '1.5rem' }} 

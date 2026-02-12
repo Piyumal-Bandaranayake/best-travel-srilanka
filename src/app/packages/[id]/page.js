@@ -25,7 +25,7 @@ export default function PackageDetailsPage({ params }) {
     const [selectedVehicle, setSelectedVehicle] = useState(null);
 
     const handleWhatsAppBook = () => {
-        const phoneNumber = "+94700000000";
+        const phoneNumber = "94701000148";
         let message = `Hi! I would like to book the package: ${pkg.title}.`;
         
         if (selectedVehicle) {
