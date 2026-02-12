@@ -20,7 +20,7 @@ const Hero = () => {
     }, []);
 
     const handleWhatsAppBook = () => {
-        const phoneNumber = "+94700000000";
+        const phoneNumber = "94701000148";
         const message = "Hi! I'm interested in booking a tour with Best Travel Sri Lanka.";
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     };

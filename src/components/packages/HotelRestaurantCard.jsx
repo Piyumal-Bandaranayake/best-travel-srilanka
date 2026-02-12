@@ -11,7 +11,7 @@ const HotelRestaurantCard = () => {
     const [selectedItem, setSelectedItem] = useState(null);
 
     const handleBook = (item) => {
-        const phoneNumber = "+94700000000";
+        const phoneNumber = "94701000148";
         const message = `Hi! I am interested in inquiring about: ${item.title} (${item.type}).`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     };

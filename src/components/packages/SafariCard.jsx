@@ -11,7 +11,7 @@ const SafariCard = () => {
     const [selectedSafari, setSelectedSafari] = useState(null);
 
     const handleBook = (safari) => {
-        const phoneNumber = "+94700000000";
+        const phoneNumber = "94701000148";
         const message = `Hi! I am interested in booking the Safari: ${safari.title} (${safari.location}).`;
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
     };
