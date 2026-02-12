@@ -22,6 +22,9 @@ const outfit = Outfit({
 export const metadata = {
   title: "Best Travel Sri Lanka",
   description: "Experience the best of Sri Lanka with our curated trave packages.",
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 import { headers } from "next/headers";
