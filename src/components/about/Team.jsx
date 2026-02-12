@@ -62,15 +62,7 @@ const Team = () => {
                             </p>
 
                             <div className="space-y-6 mb-10">
-                                <div className="flex items-start gap-4">
-                                    <div className="w-12 h-12 rounded-2xl bg-primary-blue/10 flex items-center justify-center shrink-0">
-                                        <Award className="w-6 h-6 text-primary-blue" />
-                                    </div>
-                                    <div>
-                                        <h5 className="text-lg font-bold text-gray-900">Certified Professional</h5>
-                                        <p className="text-gray-500 text-sm">Licensed by Sri Lanka Tourism Board</p>
-                                    </div>
-                                </div>
+                               
                                 <div className="flex items-start gap-4">
                                     <div className="w-12 h-12 rounded-2xl bg-accent-green/10 flex items-center justify-center shrink-0">
                                         <Calendar className="w-6 h-6 text-accent-green" />

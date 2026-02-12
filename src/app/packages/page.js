@@ -26,7 +26,7 @@ export default function ActivitiesPage() {
             <section className="relative min-h-[60vh] h-auto flex items-center justify-center text-center text-white px-6 py-20 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image 
-                        src="/mirissa%20beach.jpg" 
+                        src="/packages.jpg" 
                         alt="Sri Lanka Packages" 
                         fill 
                         className="object-cover object-center"
