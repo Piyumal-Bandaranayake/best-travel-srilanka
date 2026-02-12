@@ -114,9 +114,7 @@ export default function DestinationsPage() {
                                         <MapPin className="w-4 h-4 text-accent-green" />
                                         <span>{dest.location}</span>
                                     </div>
-                                    <p className="text-xs text-white/80 line-clamp-2 md:line-clamp-3 font-medium leading-relaxed">
-                                        {dest.description}
-                                    </p>
+
                                 </div>
                             </div>
                             
