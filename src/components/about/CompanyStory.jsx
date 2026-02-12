@@ -71,7 +71,7 @@ const CompanyStory = () => {
                 <motion.div variants={itemVariants} className="relative">
                     <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                             <Image 
-                            src="/mirissa.jpg"
+                            src="/besttravellogo.png"
                             alt="Experiencing Sri Lanka" 
                             width={600}
                             height={800}

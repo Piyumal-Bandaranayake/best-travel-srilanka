@@ -33,7 +33,7 @@ const AboutHero = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-xl md:text-2xl font-light max-w-2xl mx-auto"
             >
-                Crafting unforgettable journeys through the heart of Sri Lanka since 2015.
+                Crafting unforgettable journeys through the heart of Sri Lanka since 2020.
             </motion.p>
         </div>
     </section>

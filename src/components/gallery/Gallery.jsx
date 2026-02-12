@@ -30,7 +30,7 @@ const Gallery = () => {
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mb-16">
                 <div className="absolute inset-0 z-0">
                     <Image 
-                        src="/sigirya.jpg" 
+                        src="/Bentota.jpg" 
                         alt="Gallery Hero" 
                         fill
                         className="object-cover"
