@@ -9,7 +9,8 @@ const Hero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
         '/tigger.jpg',
-        '/mirissa%20beach.jpg'
+        '/mirissa.jpg',
+        '/herofort.jpg'
     ];
 
     useEffect(() => {
@@ -33,7 +34,7 @@ const Hero = () => {
                     key={slide}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: index === currentSlide ? 1 : 0 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    transition={{ duration: 3.5, ease: "easeInOut" }}
                     className="absolute inset-0"
                 >
                     <Image
