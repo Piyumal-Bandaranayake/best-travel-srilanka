@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { MessageSquare, X, Star, Send } from 'lucide-react';
 
 const ReviewButton = () => {
@@ -14,6 +15,11 @@ const ReviewButton = () => {
         feedback: ''
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const pathname = usePathname();
+
+    if (pathname && pathname.startsWith('/admin')) {
+        return null;
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -55,7 +61,7 @@ const ReviewButton = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-8 left-8 z-40 bg-white text-gray-900 px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 border border-gray-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all group"
+                className="fixed bottom-8 left-8 z-40 bg-white text-gray-900 px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 border border-gray-100 hover:shadow-[0_8px_30_rgb(0,0,0,0.12)] transition-all group"
             >
                 <div className="w-10 h-10 bg-primary-green/10 rounded-full flex items-center justify-center text-primary-green group-hover:bg-primary-green group-hover:text-white transition-colors">
                     <MessageSquare className="w-5 h-5" />

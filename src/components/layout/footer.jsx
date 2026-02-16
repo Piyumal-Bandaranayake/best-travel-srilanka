@@ -34,7 +34,7 @@ const Footer = () => {
     ];
 
     const socialLinks = [
-        { icon: <Facebook className="w-4 h-4" />, href: '#' },
+        { icon: <Facebook className="w-4 h-4" />, href: 'https://www.facebook.com/share/1cdbWZTAqB/' },
         { icon: <Instagram className="w-4 h-4" />, href: '#' },
     ];
 
