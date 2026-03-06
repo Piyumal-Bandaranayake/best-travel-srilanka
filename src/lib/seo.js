@@ -30,7 +30,7 @@ export function constructMetadata({
   title,
   description = siteConfig.description,
   image = siteConfig.ogImage,
-  icons = "/logo.svg",
+  icons = "/icon.png",
   noIndex = false,
   canonicalUrl,
 } = {}) {
