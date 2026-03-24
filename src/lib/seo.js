@@ -122,7 +122,7 @@ export function getTravelAgencySchema() {
     },
     "sameAs": [
       "https://facebook.com/besttravelsrilanka",
-      "https://instagram.com/besttravelsrilanka"
+      "https://www.instagram.com/besttravel.srilanka?igsh=enFndHk5Z3kydGV1"
     ]
   };
 }
