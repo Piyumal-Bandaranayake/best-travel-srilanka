@@ -35,7 +35,7 @@ const Footer = () => {
 
     const socialLinks = [
         { icon: <Facebook className="w-4 h-4" />, href: 'https://www.facebook.com/share/1cdbWZTAqB/' },
-        { icon: <Instagram className="w-4 h-4" />, href: '#' },
+        { icon: <Instagram className="w-4 h-4" />, href: 'https://www.instagram.com/besttravel.srilanka?igsh=enFndHk5Z3kydGV1' },
     ];
 
     return (
