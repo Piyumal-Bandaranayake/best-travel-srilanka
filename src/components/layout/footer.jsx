@@ -94,7 +94,17 @@ const Footer = () => {
 
                     {/* Copyright & Socials */}
                     <div className="flex items-center gap-6">
-                        <p className="text-xs text-gray-500">© {currentYear} Best Travel Sri Lanka</p>
+                        <p className="text-xs text-gray-500">
+    © {currentYear} Design & Developed by{" "}
+    <a
+        href="https://fusionwavesystems.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-primary-green transition-colors"
+    >
+        Fusion Wave Systems (PVT) LTD
+    </a>
+</p>
                         
                         <div className="flex items-center gap-3">
                             {socialLinks.map((social, idx) => (
